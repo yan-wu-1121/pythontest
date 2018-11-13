@@ -38,17 +38,22 @@ def plusMinusFirst(string):
     else:
         return False
 
-def divCheck(string):
+def divCheck(string):  # return calculated result if it has dividend
     divAmount = string.count("/")
     divPos = string.find("/")
     if divAmount >= 2:
         print("You may have wrong division sign.")
         quit() #ends the program 
     if divAmount == 1:
-        numberChecker(string[0:divPos])
-        numberChecker(string[divPos+1:])
+        leftNum = string[0:divPos]
+        rightNum = string[divPos+1:]
+        numberChecker(leftNum)
+        numberChecker(rightNum)
+        result = str(float(leftNum) / float(rightNum) )
     else:
         numberChecker(string)
+        result = str(float(string))
+    return result
 
 
 def numberChecker(string):
@@ -96,7 +101,7 @@ def slopeConstant():
         hasX = False
         if xPos >0 :
             m = rightSide[0:xPos].strip()
-            divCheck(m)            
+            mF = divCheck(m)
             hasX = True
         
         b = rightSide[xPos+1:].strip() 
@@ -110,20 +115,20 @@ def slopeConstant():
                 # has PlusMinus
                 bSign = b[0:1]
                 b = b[1:].strip()
-            divCheck(b)
+            bF = divCheck(b)
             if hasX:
                 if mSign is None:
                     if bSign is None:                        
-                        return m, b
+                        return mF, bF
                     else:
                         # has bSign
-                        return m, bSign+b
+                        return mF, bSign+bF
                 else:              
                     # has mSign
                     if bSign is None:
-                        return mSign+ m, b
+                        return mSign+ mF, bF
                     else:
-                        return mSign + m, bSign + b
+                        return mSign + mF, bSign + bF
             else: 
                 return 0,b
     elif leftSide == "X":
@@ -135,8 +140,8 @@ def slopeConstant():
             b = rightSide[1:].strip()         
         else:
             b = rightSide         
-        divCheck(b)
-        return 0, b
+        bF = divCheck(b)
+        return 0, bF
     else:
         # didn't find X or Y on the left side
         print("Unkown left side symbol:" + leftSide)
