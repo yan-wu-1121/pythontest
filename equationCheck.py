@@ -143,5 +143,32 @@ finalB = bFloater1 - bFloater2
 finalM = mFloater2 - mFloater1
 finalX = (finalB/finalM)
 finalY = ((finalX*mFloater1) + bFloater1)
-print("(%0.2f, %0.2f)"%(finalX, finalY))
+print("The two lines intersect at (%0.2f, %0.2f)"%(finalX, finalY))
 
+if finalX > 0:
+    if finalY > 0:
+        print("That is in the first quadrant.")
+        quit()
+    elif finalY == 0:
+        print("That is on the x-axis.")
+        quit()
+    else:
+        print("That is in the fourth quadrant.")
+elif finalX == 0:
+    if finalY == 0:
+        print("That is on the origin.")
+        quit()
+    else:
+        print("That is on the y-axis.")
+        quit()
+else:
+    if finalY > 0:
+        print("That is in the second quadrant.")
+        quit()
+    elif finalY == 0:
+        print("That is on the x-axis.")
+        quit()
+    else:
+        print("That is in the third quadrant.")
+        quit()
+    
