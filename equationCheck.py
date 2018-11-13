@@ -82,11 +82,14 @@ def slopeConstant():
         print("Your equation has nothing on the right side.")
         quit() #ends the program 
     if leftSide == "Y":
-        # Y on the left side, now handle right side: ax + b
+        # Y on the left side, now handle right side: mx + b
         
-        hasPlusMinus = plusMinusFirst(rightSide) 
-        if hasPlusMinus :
+        mHasPlusMinus = plusMinusFirst(rightSide) 
+        mSign = None
+        bSign = None
+        if mHasPlusMinus :
             # remove first PlusMinus
+            mSign = rightSide[0:1]
             rightSide = rightSide[1:].strip()        
         
         xPos = xFinder(rightSide) 
@@ -105,11 +108,14 @@ def slopeConstant():
                     quit() #ends the program 
             else:
                 # has PlusMinus
+                bSign = rightSide[0:1]
                 b = b[1:].strip()
             divCheck(b)
             if hasX:
-                
-                return m, b
+                if mSign is None:
+                    return m, b
+                else:                        
+                    return mSign + m, b
             else: 
                 return 0,b
     elif leftSide == "X":
