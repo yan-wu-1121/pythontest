@@ -98,18 +98,22 @@ if leftSide == "Y":
         rightSide = rightSide[1:].strip()        
     
     xPos = xFinder(rightSide) 
-    
+    hasX = False
     if xPos >0 :
         a = rightSide[0:xPos].strip()
         divCheck(a)            
+        hasX = True
     
     b = rightSide[xPos+1:].strip() 
     if len(b)>0:
         hasPlusMinus = plusMinusFirst(b) 
-        if hasPlusMinus ==False:
-            print("need Plus or minues to connect B")
-            quit()
-        b = b[1:].strip()
+        if hasPlusMinus == False :
+            if hasX:
+                print("need Plus or minues to connect B")
+                quit()
+        else:
+            # has PlusMinus
+            b = b[1:].strip()
         divCheck(b) 
         print("perfect equation")
 elif leftSide == "X":
