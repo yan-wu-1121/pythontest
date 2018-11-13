@@ -32,7 +32,8 @@ pygame.draw.polygon(screen, Black, [[350, 220], [310, 220], [310, 275], [350, 27
 
 pygame.draw.line(screen, Black, (530, 350), (530, 530), 2) #draws the wall separating the porch thing from the house bulk thing
 
-pygame.draw.rect(screen, (80, 40, 0), (475, 530, 55, -135))
+pygame.draw.rect(screen, (80, 40, 0), (475, 510, 55, -125)) #draws the door base to the house
+pygame.draw.rect(screen, Black, (475, 510, 55, -125), 2) #draws the border of the door base to the house
 
 pygame.display.flip()   
 pygame.time.wait(12000)

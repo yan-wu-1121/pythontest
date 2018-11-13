@@ -1,26 +1,23 @@
-
-#function to check if the string have single "=", it will return the position if it has single "=", othwise it will print error and quit the program
-def equalChecker(string): 
-    equalAmount = string.count("=")
-    equalPos = string.find("=")
+def equalChecker(string): #function to check whether or not the string has a valid equal sign amount/position 
+    equalAmount = string.count("=") #finds amount of equal signs 
+    equalPos = string.find("=") #finds position of equal signs 
     if equalPos == -1: #checking if the equal sign exists or not
         print("Your equation has no equal sign.") #error handling for when it does not
-        quit()
+        quit() #ends the program 
     elif equalAmount != 1: #checks if there is exactly one equal sign 
         print("You have an incorrect number of equal signs.") #error handling when there is an incorrect number of equal signs 
-        quit()  
+        quit() #ends the program  
     else:
         return equalPos #if all conditions have been satisfied then returns the position and the program can continue 
 
-#function to find if the string has single "x"  and return its position 
-def xFinder(string): 
+def xFinder(string): #function to find whether or not the string has single x and return its position 
     xPos = string.find("X")
     if xPos == -1: #checking if x exists or not
         return -1
     elif string.count("X") == 1:
         return xPos
     else:
-        print("There are an incorrect number of xs")
+        print("There are an incorrect number of xs in your equation.")
         quit()
         
 def yChecker(string): #function to detect any errors with the y
@@ -32,7 +29,6 @@ def yChecker(string): #function to detect any errors with the y
             quit()
     else:
         return 0
-
 
 def plusMinusFirst(string):
     if string.startswith("+"): 
