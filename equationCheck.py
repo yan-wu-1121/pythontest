@@ -1,5 +1,6 @@
-       
-def equalChecker(string): #function to find equal sign position and detect some potential errors with it
+
+#function to check if the string have single "=", it will return the position if it has single "=", othwise it will print error and quit the program
+def equalChecker(string): 
     equalAmount = string.count("=")
     equalPos = string.find("=")
     if equalPos == -1: #checking if the equal sign exists or not
@@ -10,8 +11,9 @@ def equalChecker(string): #function to find equal sign position and detect some 
         quit()  
     else:
         return equalPos #if all conditions have been satisfied then returns the position and the program can continue 
-        
-def xFinder(string): #function to find the x and detect if its there
+
+#function to find if the string has single "x"  and return its position 
+def xFinder(string): 
     xPos = string.find("X")
     if xPos == -1: #checking if x exists or not
         return -1
