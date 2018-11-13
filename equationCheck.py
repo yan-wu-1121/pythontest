@@ -158,6 +158,10 @@ bFloater1 = float(b1)
 mFloater2 = float(m2)
 bFloater2 = float(b2)
 
+if mFloater1 == mFloater2 :
+    print("those equation are parallel, can't calculate intersection" )
+    quit()
+
 finalB = bFloater1 - bFloater2
 finalM = mFloater2 - mFloater1
 finalX = (finalB/finalM)
