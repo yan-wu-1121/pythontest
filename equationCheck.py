@@ -108,14 +108,22 @@ def slopeConstant():
                     quit() #ends the program 
             else:
                 # has PlusMinus
-                bSign = rightSide[0:1]
+                bSign = b[0:1]
                 b = b[1:].strip()
             divCheck(b)
             if hasX:
                 if mSign is None:
-                    return m, b
-                else:                        
-                    return mSign + m, b
+                    if bSign is None:                        
+                        return m, b
+                    else:
+                        # has bSign
+                        return m, bSign+b
+                else:              
+                    # has mSign
+                    if bSign is None:
+                        return mSign+ m, b
+                    else:
+                        return mSign + m, bSign + b
             else: 
                 return 0,b
     elif leftSide == "X":
