@@ -115,7 +115,6 @@ if leftSide == "Y":
             # has PlusMinus
             b = b[1:].strip()
         divCheck(b) 
-        print("perfect equation")
 elif leftSide == "X":
     # X on the left side
     
@@ -126,7 +125,6 @@ elif leftSide == "X":
     else:
         b = rightSide         
     divCheck(b)   
-    print("perfect equation")
 else:
     # didn't find X or Y on the left side
     print("Unkown left side symbol:" + leftSide)
