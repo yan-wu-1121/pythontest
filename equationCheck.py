@@ -86,6 +86,9 @@ equalPos = equalChecker(equation) #using a function to check if there is an equa
 
 leftSide = equation[0:equalPos].strip()
 rightSide = equation[equalPos+1:].strip()
+if rightSide =='':
+    print("Didn't find anything on the right side")
+    quit()
 if leftSide == "Y":
     # Y on the left side, now handle right side: ax + b
     
