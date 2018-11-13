@@ -65,13 +65,13 @@ def numberChecker(string):
         left = string[0:dotPos].strip()
         right = string[dotPos+1:].strip()
         if left.isdecimal() == False :
-            print("You may have incorrect numbers:" + string)
+            print("Your Equation has the invalid object: " + string)
             quit()
         if left.isdecimal() == False :
-            print("You may have incorrect numbers:" + string)
+            print("Your Equation has the invalid object: " + string)
             quit()            
     elif string.isdecimal() == False :
-            print("You may have incorrect numbers:" + string)
+            print("Your Equation has the invalid object: " + string)
             quit()
     
 
@@ -85,9 +85,9 @@ equation = sameCase.strip() #using a function to remove all spaces from the equa
 equalPos = equalChecker(equation) #using a function to check if there is an equal sign in the correct position in the equation
 
 leftSide = equation[0:equalPos].strip()
-rightSide = equation[equalPos+1:].strip()
+rightSide = equation[equalPos+1:len(equation)].strip()
 if rightSide =='':
-    print("Didn't find anything on the right side")
+    print("Your equation has nothing on the right side.")
     quit()
 if leftSide == "Y":
     # Y on the left side, now handle right side: ax + b
